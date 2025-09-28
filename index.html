@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>HumanHeartCarTrans2</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">HumanHeartCarTrans2</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2025-09-28
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>HumanHeartCarTrans2/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R
+Markdown file created these results, you’ll want to first commit it to
+the Git repo. If you’re still working on the analysis, you can ignore
+this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomangeldemartinHumanHeartCarTrans2treef145fec1a0c68cf92b68b1c9c119a530a19ccbc9targetblankf145feca">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/angeldemartin/HumanHeartCarTrans2/tree/f145fec1a0c68cf92b68b1c9c119a530a19ccbc9" target="_blank">f145fec</a>
+</a>
+</p>
+</div>
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomangeldemartinHumanHeartCarTrans2treef145fec1a0c68cf92b68b1c9c119a530a19ccbc9targetblankf145feca"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version
+<a href="https://github.com/angeldemartin/HumanHeartCarTrans2/tree/f145fec1a0c68cf92b68b1c9c119a530a19ccbc9" target="_blank">f145fec</a>.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/.Rhistory
+    Ignored:    code/.DS_Store
+    Ignored:    data/seurat files/
+    Ignored:    data/tradeSEQ/
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/site_libs/.DS_Store
+    Ignored:    docs/site_libs/bootstrap-3.3.5/.DS_Store
+    Ignored:    output/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/Preprocessing/
+    Untracked:  analysis/SingletsmarkerGenesRNA_snn_res.0.4
+    Untracked:  analysis/Visit 1-3/
+    Untracked:  analysis/markerGenesRNA_snn_res.0.4
+    Untracked:  analysis/markerGenesclusterName
+    Untracked:  code/index.Rmd
+    Untracked:  code/index.html
+    Untracked:  code/site_libs/
+    Untracked:  output/Heatmap Marker Genes Singlets.pdf
+    Untracked:  output/Heatmap Marker Genes.pdf
+
+Unstaged changes:
+    Modified:   .Rprofile
+    Modified:   .gitattributes
+    Modified:   .gitignore
+    Modified:   HumanHeartCarTrans2.Rproj
+    Modified:   README.md
+    Modified:   _workflowr.yml
+    Deleted:    analysis/Abundances.Rmd
+    Deleted:    analysis/BMP_HGF.Rmd
+    Deleted:    analysis/CMhighres.Rmd
+    Deleted:    analysis/Fbfeatures.Rmd
+    Deleted:    analysis/Fbhighres.Rmd
+    Deleted:    analysis/FbhighresGSEA.Rmd
+    Deleted:    analysis/Marker_Genes.Rmd
+    Deleted:    analysis/Merge-QC-UMAPS.Rmd
+    Deleted:    analysis/QC_individual.Rmd
+    Deleted:    analysis/Tcellhighres.Rmd
+    Modified:   analysis/_site.yml
+    Modified:   analysis/about.Rmd
+    Deleted:    analysis/features.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/license.Rmd
+    Deleted:    analysis/slingshotAllFb.Rmd
+    Deleted:    analysis/slingshotIntFb.Rmd
+    Deleted:    analysis/tradeseqIntFb.Rmd
+    Modified:   code/README.md
+    Modified:   data/README.md
+    Modified:   docs/.nojekyll
+    Modified:   docs/Abundances.html
+    Modified:   docs/BMP_HGF.html
+    Modified:   docs/CMhighres.html
+    Modified:   docs/Fbfeatures.html
+    Modified:   docs/Fbhighres.html
+    Modified:   docs/FbhighresGSEA.html
+    Modified:   docs/Marker_Genes.html
+    Modified:   docs/Merge-QC-UMAPS.html
+    Modified:   docs/Tcellhighres.html
+    Modified:   docs/about.html
+    Modified:   docs/features.html
+    Modified:   docs/figure/Abundances.Rmd/abundance dataset-1.pdf
+    Modified:   docs/figure/Abundances.Rmd/abundance dataset-1.png
+    Modified:   docs/figure/Abundances.Rmd/abundance diseaseCond-1.pdf
+    Modified:   docs/figure/Abundances.Rmd/abundance diseaseCond-1.png
+    Modified:   docs/figure/Abundances.Rmd/abundance patient_diseaseCond-1.pdf
+    Modified:   docs/figure/Abundances.Rmd/abundance patient_diseaseCond-1.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-1.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-1.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-10.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-10.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-11.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-11.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-12.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-12.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-13.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-13.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-14.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-14.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-15.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-15.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-16.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-16.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-17.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-17.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-18.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-18.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-19.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-19.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-2.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-2.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-20.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-20.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-3.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-3.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-4.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-4.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-5.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-5.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-6.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-6.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-7.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-7.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-8.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-8.png
+    Modified:   docs/figure/Abundances.Rmd/fractions-9.pdf
+    Modified:   docs/figure/Abundances.Rmd/fractions-9.png
+    Modified:   docs/figure/BMP_HGF.Rmd/dotplot-1.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/dotplot-1.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-1.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-1.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-10.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-10.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-11.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-11.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-12.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-12.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-13.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-13.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-2.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-2.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-3.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-3.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-4.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-4.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-5.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-5.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-6.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-6.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-7.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-7.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-8.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-8.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-9.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features ordered-9.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-1.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-1.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-10.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-10.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-11.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-11.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-12.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-12.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-13.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-13.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-14.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-14.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-15.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-15.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-16.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-16.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-17.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-17.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-18.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-18.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-19.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-19.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-2.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-2.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-20.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-20.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-21.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-21.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-22.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-22.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-23.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-23.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-24.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-24.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-25.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-25.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-26.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-26.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-27.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-27.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-3.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-3.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-4.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-4.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-5.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-5.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-6.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-6.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-7.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-7.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-8.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-8.png
+    Modified:   docs/figure/BMP_HGF.Rmd/features-9.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/features-9.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-1.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-1.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-10.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-10.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-11.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-11.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-12.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-12.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-13.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-13.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-2.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-2.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-3.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-3.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-4.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-4.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-5.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-5.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-6.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-6.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-7.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-7.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-8.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-8.png
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-9.pdf
+    Modified:   docs/figure/BMP_HGF.Rmd/violin plots BMP All-9.png
+    Modified:   docs/figure/CMhighres.Rmd/GSEA CM0-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/GSEA CM0-1.png
+    Modified:   docs/figure/CMhighres.Rmd/GSEA CM1-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/GSEA CM1-1.png
+    Modified:   docs/figure/CMhighres.Rmd/abundance dataset AllFb-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/abundance dataset AllFb-1.png
+    Modified:   docs/figure/CMhighres.Rmd/abundance diseaseCoond AllFb-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/abundance diseaseCoond AllFb-1.png
+    Modified:   docs/figure/CMhighres.Rmd/abundance patient_diseaseCond AllFb-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/abundance patient_diseaseCond AllFb-1.png
+    Modified:   docs/figure/CMhighres.Rmd/cellular respiration-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/cellular respiration-1.png
+    Modified:   docs/figure/CMhighres.Rmd/cellular respiration-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/cellular respiration-2.png
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream1-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream1-1.png
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream2-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream2-1.png
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream3-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream3-1.png
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream4-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/dotplot BMP downstream4-1.png
+    Modified:   docs/figure/CMhighres.Rmd/energy derivation by oxidation of organic compounds-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/energy derivation by oxidation of organic compounds-1.png
+    Modified:   docs/figure/CMhighres.Rmd/energy derivation by oxidation of organic compounds-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/energy derivation by oxidation of organic compounds-2.png
+    Modified:   docs/figure/CMhighres.Rmd/features-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-1.png
+    Modified:   docs/figure/CMhighres.Rmd/features-10.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-10.png
+    Modified:   docs/figure/CMhighres.Rmd/features-11.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-11.png
+    Modified:   docs/figure/CMhighres.Rmd/features-12.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-12.png
+    Modified:   docs/figure/CMhighres.Rmd/features-13.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-13.png
+    Modified:   docs/figure/CMhighres.Rmd/features-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-2.png
+    Modified:   docs/figure/CMhighres.Rmd/features-3.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-3.png
+    Modified:   docs/figure/CMhighres.Rmd/features-4.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-4.png
+    Modified:   docs/figure/CMhighres.Rmd/features-5.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-5.png
+    Modified:   docs/figure/CMhighres.Rmd/features-6.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-6.png
+    Modified:   docs/figure/CMhighres.Rmd/features-7.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-7.png
+    Modified:   docs/figure/CMhighres.Rmd/features-8.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-8.png
+    Modified:   docs/figure/CMhighres.Rmd/features-9.pdf
+    Modified:   docs/figure/CMhighres.Rmd/features-9.png
+    Modified:   docs/figure/CMhighres.Rmd/heart contraction-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/heart contraction-1.png
+    Modified:   docs/figure/CMhighres.Rmd/heart contraction-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/heart contraction-2.png
+    Modified:   docs/figure/CMhighres.Rmd/muscle system process-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/muscle system process-1.png
+    Modified:   docs/figure/CMhighres.Rmd/muscle system process-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/muscle system process-2.png
+    Modified:   docs/figure/CMhighres.Rmd/response to peptide hormone-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/response to peptide hormone-1.png
+    Modified:   docs/figure/CMhighres.Rmd/response to peptide hormone-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/response to peptide hormone-2.png
+    Modified:   docs/figure/CMhighres.Rmd/response to starvation-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/response to starvation-1.png
+    Modified:   docs/figure/CMhighres.Rmd/response to starvation-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/response to starvation-2.png
+    Modified:   docs/figure/CMhighres.Rmd/umaps-1.pdf
+    Modified:   docs/figure/CMhighres.Rmd/umaps-1.png
+    Modified:   docs/figure/CMhighres.Rmd/umaps-2.pdf
+    Modified:   docs/figure/CMhighres.Rmd/umaps-2.png
+    Modified:   docs/figure/CMhighres.Rmd/umaps-3.pdf
+    Modified:   docs/figure/CMhighres.Rmd/umaps-3.png
+    Modified:   docs/figure/CMhighres.Rmd/umaps-4.pdf
+    Modified:   docs/figure/CMhighres.Rmd/umaps-4.png
+    Modified:   docs/figure/Fbfeatures.Rmd/dotplot BMP downstream1-1.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/dotplot BMP downstream1-1.png
+    Modified:   docs/figure/Fbfeatures.Rmd/dotplot BMP downstream2-1.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/dotplot BMP downstream2-1.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-1.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-1.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-10.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-10.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-11.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-11.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-12.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-12.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-13.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-13.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-14.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-14.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-2.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-2.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-3.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-3.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-4.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-4.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-5.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-5.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-6.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-6.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-7.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-7.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-8.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-8.png
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-9.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/features BMP AllFb-9.png
+    Modified:   docs/figure/Fbfeatures.Rmd/umaps AllFb-1.pdf
+    Modified:   docs/figure/Fbfeatures.Rmd/umaps AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance dataset AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance dataset AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance dataset-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance dataset-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance diseaseCond-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance diseaseCond-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance diseaseCoond AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance diseaseCoond AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance patient_diseaseCond AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance patient_diseaseCond AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/abundance patient_diseaseCond-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/abundance patient_diseaseCond-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP AllFb-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features BMP ordered AllFb-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features ordered-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/features-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/features-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps AllFb-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps IntFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/umaps-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-1-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-10-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-10-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-15-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-15-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-15-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-15-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-2-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-3-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-3-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-4-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/unnamed-chunk-4-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots AllFb-9.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-1.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-1.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-10.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-10.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-11.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-11.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-12.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-12.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-13.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-13.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-2.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-2.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-3.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-3.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-4.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-4.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-5.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-5.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-6.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-6.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-7.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-7.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-8.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-8.png
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-9.pdf
+    Modified:   docs/figure/Fbhighres.Rmd/violin plots BMP AllFb-9.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/BMP signaling pathway-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/BMP signaling pathway-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/BMP signaling pathway-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/BMP signaling pathway-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb1-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb1-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb3-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb3-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb4-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA Fb4-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA PerivFb1-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/GSEA PerivFb1-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/Wnt signaling pathway-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/Wnt signaling pathway-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/Wnt signaling pathway-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/Wnt signaling pathway-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cellular response to peptide hormone stimulus-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cellular response to peptide hormone stimulus-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cellular response to peptide hormone stimulus-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cellular response to peptide hormone stimulus-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cyclic purine nucleotide metabolic process-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cyclic purine nucleotide metabolic process-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cyclic purine nucleotide metabolic process-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/cyclic purine nucleotide metabolic process-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization Fb4-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization Fb4-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization Fb4-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization Fb4-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/extracellular matrix organization-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/glycoprotein metabolic process-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/glycoprotein metabolic process-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/glycoprotein metabolic process-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/glycoprotein metabolic process-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle contraction-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle contraction-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle contraction-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle contraction-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle tissue development-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle tissue development-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle tissue development-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/muscle tissue development-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/nucleotide-sugar biosynthetic process-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/nucleotide-sugar biosynthetic process-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/nucleotide-sugar biosynthetic process-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/nucleotide-sugar biosynthetic process-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/regulation of type I interferon production-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/regulation of type I interferon production-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/regulation of type I interferon production-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/regulation of type I interferon production-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/response to peptide hormone-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/response to peptide hormone-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/response to peptide hormone-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/response to peptide hormone-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/type II interferon production-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/type II interferon production-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/type II interferon production-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/type II interferon production-2.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/umaps AllFb-1.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/umaps AllFb-1.png
+    Modified:   docs/figure/FbhighresGSEA.Rmd/umaps AllFb-2.pdf
+    Modified:   docs/figure/FbhighresGSEA.Rmd/umaps AllFb-2.png
+    Modified:   docs/figure/Marker_Genes.Rmd/avg heatmap-1.pdf
+    Modified:   docs/figure/Marker_Genes.Rmd/avg heatmap-1.png
+    Modified:   docs/figure/Marker_Genes.Rmd/dotplot marker genes-1.pdf
+    Modified:   docs/figure/Marker_Genes.Rmd/dotplot marker genes-1.png
+    Modified:   docs/figure/Marker_Genes.Rmd/unnamed-chunk-1-1.pdf
+    Modified:   docs/figure/Marker_Genes.Rmd/unnamed-chunk-1-1.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC dataset-1.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC dataset-1.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC dataset-2.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC dataset-2.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC patient-1.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC patient-1.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC patient-2.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/QC patient-2.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/cellnumber circle dataset-1.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/cellnumber circle dataset-1.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-1.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-1.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-10.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-10.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-11.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-11.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-12.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-12.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-13.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-13.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-14.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-14.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-15.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-15.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-16.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-16.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-17.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-17.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-18.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-18.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-19.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-19.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-2.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-2.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-20.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-20.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-3.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-3.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-4.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-4.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-5.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-5.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-6.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-6.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-7.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-7.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-8.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-8.png
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-9.pdf
+    Modified:   docs/figure/Merge-QC-UMAPS.Rmd/umap-9.png
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance diseaseCond Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance diseaseCond Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance diseaseCond-2 Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance diseaseCond-2 Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance patient_diseaseCond Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance patient_diseaseCond Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance patient_diseaseCond-2 Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/abundance patient_diseaseCond-2 Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-10.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-10.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-11.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-11.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-12.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-12.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-13.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-13.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-14.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-14.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-15.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-15.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-16.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-16.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-17.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-17.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-18.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-18.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-19.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-19.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-2.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-2.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-20.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-20.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-21.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-21.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-22.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-22.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-23.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-23.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-24.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-24.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-25.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-25.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-3.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-3.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-4.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-4.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-5.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-5.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-6.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-6.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-7.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-7.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-8.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-8.png
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-9.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/features Tcells-9.png
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-2.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-2.png
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-3.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/umaps Tcells-3.png
+    Modified:   docs/figure/Tcellhighres.Rmd/unnamed-chunk-3-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/unnamed-chunk-3-1.png
+    Modified:   docs/figure/Tcellhighres.Rmd/unnamed-chunk-4-1.pdf
+    Modified:   docs/figure/Tcellhighres.Rmd/unnamed-chunk-4-1.png
+    Modified:   docs/figure/features.Rmd/BMP features-1.pdf
+    Modified:   docs/figure/features.Rmd/BMP features-1.png
+    Modified:   docs/figure/features.Rmd/dotplot infl genes-1.pdf
+    Modified:   docs/figure/features.Rmd/dotplot infl genes-1.png
+    Modified:   docs/figure/features.Rmd/features-1.pdf
+    Modified:   docs/figure/features.Rmd/features-1.png
+    Modified:   docs/figure/features.Rmd/features-2.pdf
+    Modified:   docs/figure/features.Rmd/features-2.png
+    Modified:   docs/figure/features.Rmd/features-3.pdf
+    Modified:   docs/figure/features.Rmd/features-3.png
+    Modified:   docs/figure/features.Rmd/features-4.pdf
+    Modified:   docs/figure/features.Rmd/features-4.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/umaps-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/umaps-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/umaps-2.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/umaps-2.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-11-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-11-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-12-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-12-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-13-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-13-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-14-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-14-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-16-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-16-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-17-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-17-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-18-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-18-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-6-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-6-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-7-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-7-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-8-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-8-1.png
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-9-1.pdf
+    Modified:   docs/figure/slingshotIntFb.Rmd/unnamed-chunk-9-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/diffLinGeneCluster.txt
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-40.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-40.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-41.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-41.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-42.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-42.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-43.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-43.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-44.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-44.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-45.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-45.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-46.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-46.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-47.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-47.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-48.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-48.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-49.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-49.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-50.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-50.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-12-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-40.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-40.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-41.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-41.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-42.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-42.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-43.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-43.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-44.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-44.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-45.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-45.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-46.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-46.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-47.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-47.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-48.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-48.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-49.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-49.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-50.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-50.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-13-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-14-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-40.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-40.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-41.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-41.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-42.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-42.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-43.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-43.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-44.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-44.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-45.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-45.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-46.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-46.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-47.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-47.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-48.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-48.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-49.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-49.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-50.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-50.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-15-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-40.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-40.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-41.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-41.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-42.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-42.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-43.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-43.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-44.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-44.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-45.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-45.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-46.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-46.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-47.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-47.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-48.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-48.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-49.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-49.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-50.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-50.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-17-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-18-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-2-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-2-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-1.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-10.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-10.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-11.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-11.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-12.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-12.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-13.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-13.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-14.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-14.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-15.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-15.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-16.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-16.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-17.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-17.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-18.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-18.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-19.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-19.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-2.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-2.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-20.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-20.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-21.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-21.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-22.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-22.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-23.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-23.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-24.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-24.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-25.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-25.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-26.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-26.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-27.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-27.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-28.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-28.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-29.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-29.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-3.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-3.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-30.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-30.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-31.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-31.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-32.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-32.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-33.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-33.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-34.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-34.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-35.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-35.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-36.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-36.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-37.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-37.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-38.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-38.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-39.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-39.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-4.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-4.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-40.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-40.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-5.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-5.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-6.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-6.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-7.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-7.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-8.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-8.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-9.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-20-9.png
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-7-1.pdf
+    Modified:   docs/figure/tradeseqIntFb.Rmd/unnamed-chunk-7-1.png
+    Modified:   docs/index.html
+    Modified:   docs/license.html
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.css.map
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap-theme.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap.css.map
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/bootstrap.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/cerulean.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/cosmo.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/darkly.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/flatly.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/Lato.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/LatoBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/LatoItalic.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/NewsCycle.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/NewsCycleBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSans.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansBoldItalic.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansItalic.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansLight.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/OpenSansLightItalic.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/Raleway.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/RalewayBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/Roboto.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoLight.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/RobotoMedium.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansPro.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProBold.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProItalic.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/SourceSansProLight.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/fonts/Ubuntu.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/journal.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/lumen.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/paper.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/readable.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/sandstone.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/simplex.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/spacelab.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/united.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/css/yeti.min.css
+    Modified:   docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot
+    Modified:   docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg
+    Modified:   docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf
+    Modified:   docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff
+    Modified:   docs/site_libs/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2
+    Modified:   docs/site_libs/bootstrap-3.3.5/js/bootstrap.js
+    Modified:   docs/site_libs/bootstrap-3.3.5/js/bootstrap.min.js
+    Modified:   docs/site_libs/bootstrap-3.3.5/js/npm.js
+    Modified:   docs/site_libs/bootstrap-3.3.5/shim/html5shiv.min.js
+    Modified:   docs/site_libs/bootstrap-3.3.5/shim/respond.min.js
+    Modified:   docs/site_libs/header-attrs-2.28/header-attrs.js
+    Modified:   docs/site_libs/header-attrs-2.29/header-attrs.js
+    Modified:   docs/site_libs/highlightjs-9.12.0/default.css
+    Modified:   docs/site_libs/highlightjs-9.12.0/highlight.js
+    Modified:   docs/site_libs/highlightjs-9.12.0/textmate.css
+    Modified:   docs/site_libs/jquery-3.6.0/jquery-3.6.0.js
+    Modified:   docs/site_libs/jquery-3.6.0/jquery-3.6.0.min.js
+    Modified:   docs/site_libs/jquery-3.6.0/jquery-3.6.0.min.map
+    Modified:   docs/site_libs/jqueryui-1.13.2/AUTHORS.txt
+    Modified:   docs/site_libs/jqueryui-1.13.2/LICENSE.txt
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_444444_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_555555_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_777620_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_777777_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_cc0000_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/images/ui-icons_ffffff_256x240.png
+    Modified:   docs/site_libs/jqueryui-1.13.2/index.html
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.css
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.js
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.min.css
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.min.js
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.structure.css
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.structure.min.css
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.theme.css
+    Modified:   docs/site_libs/jqueryui-1.13.2/jquery-ui.theme.min.css
+    Modified:   docs/site_libs/navigation-1.1/codefolding-lua.css
+    Modified:   docs/site_libs/navigation-1.1/codefolding.js
+    Modified:   docs/site_libs/navigation-1.1/sourceembed.js
+    Modified:   docs/site_libs/navigation-1.1/tabsets.js
+    Modified:   docs/site_libs/tocify-1.9.1/jquery.tocify.css
+    Modified:   docs/site_libs/tocify-1.9.1/jquery.tocify.js
+    Modified:   docs/slingshotIntFb.html
+    Modified:   docs/tradeseqIntFb.html
+    Modified:   output/README.md
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with
+<code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="merge-all" class="section level2">
+<h2>merge All</h2>
+<p>merge QC and display umaps <a href="Merge-QC-UMAPS.html">link</a></p>
+<div id="marker-genes" class="section level3">
+<h3>marker genes</h3>
+<p>calculate and plot marker and DE genes <a
+href="Marker_Genes.html">link</a></p>
+</div>
+<div id="abundances" class="section level3">
+<h3>abundances</h3>
+<p>Relative abundance <a href="Abundances.html">link</a></p>
+</div>
+<div id="features" class="section level3">
+<h3>features</h3>
+<p>Selected genes <a href="features.html">link</a></p>
+</div>
+<div id="bmp-features" class="section level3">
+<h3>BMP features</h3>
+<p>Expression of BMP signaling genes <a href="BMP_HGF.html">link</a></p>
+</div>
+</div>
+<div id="fb-high-resolution" class="section level2">
+<h2>Fb high resolution</h2>
+<div id="subset-and-characterize" class="section level3">
+<h3>Subset and characterize</h3>
+<p>Fb <a href="Fbhighres.html">link</a></p>
+</div>
+<div id="features-1" class="section level3">
+<h3>features</h3>
+<p>Selected genes <a href="Fbfeatures.html">link</a></p>
+</div>
+<div id="gsea-and-infl-signatures" class="section level3">
+<h3>GSEA and infl signatures</h3>
+<p>GSEA <a href="FbhighresGSEA.html">link</a></p>
+</div>
+<div id="trajectory-analysis" class="section level3">
+<h3>Trajectory analysis</h3>
+<p>Trajectory <a href="slingshotIntFb.html">link</a></p>
+</div>
+<div id="tradeseq" class="section level3">
+<h3>TradeSEQ</h3>
+<p>TradeSEQ <a href="tradeseqIntFb.html">link</a></p>
+</div>
+</div>
+<div id="cm-high-resolution" class="section level2">
+<h2>CM high resolution</h2>
+<div id="subset-and-characterize-1" class="section level3">
+<h3>Subset and characterize</h3>
+<p>CM <a href="CMhighres.html">link</a></p>
+</div>
+</div>
+<div id="t-cells-high-resolution" class="section level2">
+<h2>T cells high resolution</h2>
+<p>Tcells <a href="Tcellhighres.html">link</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
