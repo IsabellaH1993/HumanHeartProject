@@ -29,9 +29,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -232,69 +229,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -302,16 +236,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -378,7 +302,7 @@ aria-hidden="true"></span> </a>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2025-09-29
+<strong>Last updated:</strong> 2025-09-30
 </p>
 <p>
 <strong>Checks:</strong> <span
@@ -464,6 +388,7 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    Archive/
     Ignored:    analysis/.DS_Store
     Ignored:    analysis/.Rhistory
     Ignored:    code/.DS_Store
@@ -472,6 +397,7 @@ Ignored files:
     Ignored:    output/.DS_Store
 
 Untracked files:
+    Untracked:  HumanHeartProject/
     Untracked:  analysis/ExpDHmarkerGenesRNA_snn_res.0.4
     Untracked:  analysis/Explant-donor/
     Untracked:  analysis/Preprocessing/
@@ -801,52 +727,44 @@ Start workflowr project.
 </div>
 <div id="preprocessing" class="section level1">
 <h1>Preprocessing</h1>
-<div id="merging" class="section level3">
-<h3>Merging</h3>
-<p><a href="Merging.html">link</a></p>
+<div id="merging-link" class="section level4">
+<h4>Merging <a href="Merging.html">link</a></h4>
 </div>
-<div id="qc-and-umaps" class="section level3">
-<h3>QC and UMAPS</h3>
-<p><a href="QC_UMAPS.html">link</a></p>
+<div id="qc-and-umaps-link" class="section level4">
+<h4>QC and UMAPS <a href="QC-UMAPS.html">link</a></h4>
 </div>
-<div id="doublet-finder" class="section level3">
-<h3>Doublet Finder</h3>
-<p><a href="DoubletFinder.html">link</a></p>
+<div id="doublet-finder-link" class="section level4">
+<h4>Doublet Finder <a href="DoubletFinder.html">link</a></h4>
 </div>
-<div id="marker-genes" class="section level3">
-<h3>Marker genes</h3>
-<p><a href="Marker_Genes.html">link</a></p>
+<div id="marker-genes-link" class="section level4">
+<h4>Marker genes <a href="Marker_Genes.html">link</a></h4>
 </div>
-<div id="abundances-overall" class="section level3">
-<h3>Abundances overall</h3>
-<p><a href="RelAbundancesOverall.html">link</a></p>
+<div id="abundances-overall-link" class="section level4">
+<h4>Abundances overall <a href="RelAbundancesOverall.html">link</a></h4>
 </div>
-<div id="feature-plots-of-selected-genes" class="section level3">
-<h3>Feature plots of selected genes</h3>
-<p><a href="features.html">link</a></p>
+<div id="feature-plots-of-selected-genes-link" class="section level4">
+<h4>Feature plots of selected genes <a
+href="features.html">link</a></h4>
 </div>
-<div id="expression-of-bmp-signaling-genes" class="section level3">
-<h3>Expression of BMP signaling genes</h3>
-<p><a href="BMP_HGF.html">link</a></p>
+<div id="expression-of-bmp-signaling-genes-link" class="section level4">
+<h4>Expression of BMP signaling genes <a
+href="BMP_HGF_Overall.html">link</a></h4>
 </div>
 </div>
 <div id="donor-heart-vs-explanted-heart" class="section level1">
 <h1>Donor heart vs Explanted Heart</h1>
-<div id="subset-and-analyse" class="section level3">
-<h3>Subset and analyse</h3>
-<p><a href="Donor_Explant_Hres.html">link</a></p>
+<div id="subset-and-analyse-link" class="section level4">
+<h4>Subset and analyse <a href="Donor_Explant_Hres.html">link</a></h4>
 </div>
-<div id="gsea" class="section level3">
-<h3>GSEA</h3>
-<p><a href="ExpDH_GSEA.html">link</a></p>
+<div id="gsea-link" class="section level4">
+<h4>GSEA <a href="ExpDH_GSEA.html">link</a></h4>
 </div>
 </div>
 <div id="visit-1-3" class="section level1">
 <h1>Visit 1-3</h1>
-<div id="relative-abundances-v1-3" class="section level3">
-<h3>Relative Abundances V1-3</h3>
-<p><a href="AbundancesV1-3.html">link</a></p>
-<p>—————— Current state of analysis————————– ## Fb high resolution ###
+<div id="relative-abundances-v1-3-link" class="section level4">
+<h4>Relative Abundances V1-3 <a href="AbundancesV1-3.html">link</a></h4>
+<p>—————— Current state of analysis————————– # Fb high resolution ####
 Subset and characterize Fb <a href="Fbhighres.html">link</a></p>
 </div>
 <div id="feature-plots" class="section level3">
@@ -902,8 +820,6 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -936,35 +852,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
