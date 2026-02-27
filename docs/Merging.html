@@ -373,7 +373,6 @@ mem.maxVSize()</code></pre>
 <pre><code>## [1] 153600</code></pre>
 <div id="load-packages" class="section level2">
 <h2>load packages</h2>
-<p><code>{r load packages, warning=FALSE, include=FALSE}Liebe #library(ExploreSCdataSeurat3) #library(runSeurat3) library(Seurat) library(ggpubr) library(pheatmap) library(SingleCellExperiment) library(dplyr) library(tidyverse) library(viridis) library(muscat) library(circlize) library(destiny) library(scater) library(metap) library(multtest) library(clusterProfiler) library(org.Hs.eg.db) library(msigdbr) library(enrichplot) library(DOSE) library(grid) library(gridExtra) library(ggupset) library(VennDiagram) library(NCmisc)</code></p>
 <p>#start pre-processing</p>
 </div>
 <div id="load-files-and-merge" class="section level2">
@@ -411,7 +410,7 @@ seuratM &lt;- RunTSNE(object=seuratM, reduction=&quot;pca&quot;, dims = 1:20)
 seuratM &lt;- RunUMAP(object=seuratM, reduction=&quot;pca&quot;, dims = 1:20)
 seuratM &lt;- FindNeighbors(object = seuratM, reduction = &quot;pca&quot;, dims= 1:20)
 
-res &lt;- c(0.2, 0.25, 0.6, 0.8, 0.4)
+res &lt;- c(0.1, 0.2, 0.25, 0.6, 0.8, 0.4)
 for (i in 1:length(res)) {
   seuratM &lt;- FindClusters(object = seuratM, resolution = res[i], random.seed = 1234)
 }</code></pre>
